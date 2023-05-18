@@ -1,6 +1,12 @@
 .Card {
-  border-radius: 10px;
+  border-radius: 20px;
   background-color: #d9d9d9;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .CardImage {
@@ -11,7 +17,7 @@
 .CardNameContainer {
   padding: 5px 0;
   background-color: #9caae8;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 20px 20px;
 }
 
 .CardName {
