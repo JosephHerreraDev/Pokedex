@@ -1,0 +1,27 @@
+.Card {
+  border-radius: 10px;
+  background-color: #d9d9d9;
+}
+
+.CardImage {
+  max-width: 90%;
+  height: auto;
+}
+
+.CardNameContainer {
+  padding: 5px 0;
+  background-color: #9caae8;
+  border-radius: 0 0 10px 10px;
+}
+
+.CardName {
+  text-align: center;
+}
+
+.CardDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 70%;
+  margin: 0 auto;
+}
