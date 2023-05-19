@@ -7,10 +7,11 @@
 .Card:hover {
   transform: scale(1.05);
   opacity: 0.8;
+  cursor: pointer;
 }
 
 .CardImage {
-  max-width: 90%;
+  width: 90%;
   height: auto;
 }
 
