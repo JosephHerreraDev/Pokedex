@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Card } from "./card";
 
-export function PokemonList() {
+const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon/?limit=100")
-      .then(response => response.json())
-      .then(data => setPokemonList(data.results))
-      .catch(error => console.error(error));
+      .then((response) => response.json())
+      .then((data) => setPokemonList(data.results))
+      .catch((error) => console.error(error));
   }, []);
 
   return (
@@ -17,10 +17,14 @@ export function PokemonList() {
         <Card
           key={index}
           title={pokemon.name}
-          img={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(index + 1).padStart(3, '0')}.png`}
+          img={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
+            index + 1
+          ).padStart(3, "0")}.png`}
           alt={pokemon.name}
         />
       ))}
     </div>
   );
-}
+};
+
+export default PokemonList;

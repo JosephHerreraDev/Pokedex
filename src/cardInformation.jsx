@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./card.css";
 
-export function CardInformation({
+const CardInformation = ({
   img,
   alt,
   title,
@@ -10,7 +10,7 @@ export function CardInformation({
   attack,
   defense,
   specialAttack,
-}) {
+}) => {
   return (
     <div className="CardInformation">
       <img className="CardImage" src={img} alt={alt} />
@@ -33,7 +33,7 @@ export function CardInformation({
       </section>
     </div>
   );
-}
+};
 
 CardInformation.propTypes = {
   img: PropTypes.string.isRequired,
@@ -45,3 +45,5 @@ CardInformation.propTypes = {
   defense: PropTypes.number.isRequired,
   specialAttack: PropTypes.number.isRequired,
 };
+
+export default CardInformation;
