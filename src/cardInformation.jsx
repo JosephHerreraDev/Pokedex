@@ -1,16 +1,15 @@
+import { useParams, useLocation } from 'react-router-dom';
 import PropTypes from "prop-types";
 import "./card.css";
 
-const CardInformation = ({
-  img,
-  alt,
-  title,
-  hp,
-  exp,
-  attack,
-  defense,
-  specialAttack,
-}) => {
+const CardInformation = () => {
+  const { name } = useParams();
+  const { state } = useLocation();
+
+  const { img, alt, title, exp, hp, attack, defense, specialAttack } = state;
+
+  alert(name);
+
   return (
     <div className="CardInformation">
       <img className="CardImage" src={img} alt={alt} />
