@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import PokemonList from "./pokemonList";
-import CardInformation from "./cardInformation";
+import PokemonList from "./PokemonList/PokemonList";
+import CardInformation from "./CardInformation/CardInformation";
 
 export default function App() {
   return (
