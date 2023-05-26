@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card } from "../card";
+import { Card } from "../Card/Card";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
