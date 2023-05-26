@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import "./card.css";
 import { useNavigate } from "react-router-dom";
 
 export function Card({ img, alt, title }) {
