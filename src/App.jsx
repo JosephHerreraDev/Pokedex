@@ -9,7 +9,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<PokemonList />} />
-          <Route path="/information" element={<CardInformation />} />
+          <Route path="/information/:name" element={<CardInformation />} />
         </Routes>
       </BrowserRouter>
     </>

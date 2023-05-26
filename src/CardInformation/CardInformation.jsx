@@ -1,14 +1,12 @@
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../card.css";
 
 const CardInformation = () => {
-  const { name } = useParams();
+  // const { name } = useParams();
   const { state } = useLocation();
 
   const { img, alt, title, exp, hp, attack, defense, specialAttack } = state;
-
-  alert(name);
 
   return (
     <div className="CardInformation">
