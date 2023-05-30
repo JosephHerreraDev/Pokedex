@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./PokemonList.css";
 import axios from "axios";
@@ -6,14 +6,21 @@ import axios from "axios";
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
-  axios
-    .get("https://pokeapi.co/api/v2/pokemon/?limit=9")
-    .then(function (response) {
-      setPokemonList(response.data.results);
-    })
-    .catch(function (error) {
-      console.error(error);
-    });
+  useEffect(() => {
+    async function fetchPokemonList() {
+      try {
+        const response = await axios.get(
+          "https://pokeapi.co/api/v2/pokemon/?limit=9"
+        );
+        const results = response.data.results;
+        setPokemonList(results);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchPokemonList();
+  }, []);
 
   return (
     <div className="CardDisplay">

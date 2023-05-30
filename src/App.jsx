@@ -13,7 +13,21 @@ export default function App() {
       <h1 onClick={navigateHome}>Pokedex</h1>
       <Routes>
         <Route exact path="/" element={<PokemonList />} />
-        <Route path="/information/:name" element={<CardInformation />} />
+        <Route
+          path="/information/:name"
+          element={
+            <CardInformation
+              img=""
+              alt=""
+              title=""
+              exp={0}
+              hp={0}
+              attack={0}
+              defense={0}
+              specialAttack={0}
+            />
+          }
+        />
       </Routes>
     </>
   );
