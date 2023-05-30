@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export function Card({ img, alt, title }) {
   const navigateTo = useNavigate();
@@ -7,13 +8,18 @@ export function Card({ img, alt, title }) {
   function handleClick() {
     const pokemonName = title;
 
-    const info = fetch(
-      "https://pokeapi.co/api/v2/pokemon/" + pokemonName + "/"
-    );
+    async function getPokemon() {
+      try {
+        return await axios.get(
+          "https://pokeapi.co/api/v2/pokemon/" + pokemonName + "/"
+        );
+      } catch (error) {
+        console.error(error);
+      }
+    }
 
-    info
-      .then((response) => response.json())
-      .then((data) => {
+    getPokemon()
+      .then(({ data }) =>
         navigateTo(`/information/${pokemonName}`, {
           state: {
             img: `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
@@ -27,11 +33,9 @@ export function Card({ img, alt, title }) {
             defense: data.stats[2].base_stat,
             specialAttack: data.stats[3].base_stat,
           },
-        });
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+        })
+      )
+      .catch((error) => console.error(error));
   }
 
   return (
