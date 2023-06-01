@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./PokemonList.css";
-import { fetchPokemon } from "../api/fetchPokemon";
+import { fetchPokemons } from "../api/fetchPokemons";
 
 const PokemonList = () => {
   const [pokemonList, setPokemonList] = useState([]);
@@ -9,7 +9,7 @@ const PokemonList = () => {
   useEffect(() => {
     async function fetchPokemonList() {
       try {
-        const results = await fetchPokemon();
+        const results = await fetchPokemons();
         setPokemonList(results);
       } catch (error) {
         console.error(error);
@@ -25,7 +25,7 @@ const PokemonList = () => {
         <Card
           key={index}
           id={index}
-          title={pokemon.name}
+          name={pokemon.name}
           img={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
             index + 1
           ).padStart(3, "0")}.png`}
