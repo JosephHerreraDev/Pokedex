@@ -3,7 +3,7 @@ import { Card } from "../Card/Card";
 import "./PokemonList.css";
 import { fetchPokemons } from "../api/fetchPokemons";
 
-const PokemonList = () => {
+const PokemonListCreator = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
@@ -34,6 +34,10 @@ const PokemonList = () => {
       ))}
     </div>
   );
+};
+
+const PokemonList = () => {
+  return <PokemonListCreator />;
 };
 
 export default PokemonList;
