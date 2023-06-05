@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
 import "./PokemonList.css";
-import axios from "axios";
+import { fetchPokemons } from "../api/fetchPokemons";
 
-const PokemonList = () => {
+const PokemonListCreator = () => {
   const [pokemonList, setPokemonList] = useState([]);
 
   useEffect(() => {
     async function fetchPokemonList() {
       try {
-        const response = await axios.get(
-          "https://pokeapi.co/api/v2/pokemon/?limit=9"
-        );
-        const results = response.data.results;
+        const results = await fetchPokemons();
         setPokemonList(results);
       } catch (error) {
         console.error(error);
@@ -28,7 +25,7 @@ const PokemonList = () => {
         <Card
           key={index}
           id={index}
-          title={pokemon.name}
+          name={pokemon.name}
           img={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
             index + 1
           ).padStart(3, "0")}.png`}
@@ -37,6 +34,10 @@ const PokemonList = () => {
       ))}
     </div>
   );
+};
+
+const PokemonList = () => {
+  return <PokemonListCreator />;
 };
 
 export default PokemonList;

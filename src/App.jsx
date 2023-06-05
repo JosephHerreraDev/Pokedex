@@ -19,7 +19,7 @@ export default function App() {
             <CardInformation
               img=""
               alt=""
-              title=""
+              name=""
               exp={0}
               hp={0}
               attack={0}
