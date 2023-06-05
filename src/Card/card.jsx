@@ -1,21 +1,15 @@
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import { fetchPokemon } from "../api/fetchPokemon";
 
-export function Card({ img, alt, title }) {
+export function Card({ img, alt, name }) {
   const navigateTo = useNavigate();
 
   function handleClick() {
-    const pokemonName = title;
+    const pokemonName = name;
 
     async function getPokemon() {
-      try {
-        return await axios.get(
-          "https://pokeapi.co/api/v2/pokemon/" + pokemonName + "/"
-        );
-      } catch (error) {
-        console.error(error);
-      }
+      return fetchPokemon(pokemonName);
     }
 
     getPokemon()
@@ -42,7 +36,7 @@ export function Card({ img, alt, title }) {
     <div className="Card" onClick={handleClick}>
       <img className="CardImage" src={img} alt={alt} />
       <div className="CardNameContainer">
-        <h3 className="CardName">{title}</h3>
+        <h3 className="CardName">{name}</h3>
       </div>
     </div>
   );
@@ -51,5 +45,5 @@ export function Card({ img, alt, title }) {
 Card.propTypes = {
   img: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
