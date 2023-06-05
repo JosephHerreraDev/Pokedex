@@ -1,8 +1,24 @@
 .CardInformation {
-  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   background-color: #d9d9d9;
-  width: 35%;
-  margin: 0 auto;
+  border-radius: 20px;
+  margin: 0 35%;
+}
+
+/*Media query para pantallas medianas*/
+@media screen and (max-width: 1024px) {
+  .CardInformation {
+    margin: 0 10%;
+  }
+}
+
+/* Media query para pantallas más pequeñas */
+@media screen and (max-width: 768px) {
+  .CardInformation {
+    margin: 0 2%;
+  }
 }
 
 .CardText {
