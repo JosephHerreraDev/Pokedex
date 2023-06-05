@@ -1,39 +1,48 @@
-.Card {
-    border-radius: 20px;
-    background-color: #d9d9d9;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
-  
-  .Card:hover {
-    transform: scale(1.05);
-    opacity: 0.8;
-    cursor: pointer;
-  }
-  
-  .CardImage {
-    width: 90%;
-    height: auto;
-  }
-  
-  .CardNameContainer {
-    padding: 5px 0;
-    background-color: #9caae8;
-    border-radius: 0 0 20px 20px;
-  }
-  
-  .CardName {
-    text-align: center;
-    margin: 10px auto;
-  }
-  
+.CardDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1024px) {
   .CardDisplay {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 70%;
-    margin: 0 auto;
+    max-width: 90%;
   }
-  
-  /**/
-  
-  
+}
+
+@media screen and (max-width: 768px) {
+  .CardDisplay {
+    max-width: 100%;
+    margin: 0 2%;
+  }
+}
+
+.Card {
+  border-radius: 20px;
+  background-color: #d9d9d9;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.Card:hover {
+  transform: scale(1.05);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.CardImage {
+  width: 90%;
+  height: auto;
+}
+
+.CardNameContainer {
+  padding: 5px 0;
+  background-color: #9caae8;
+  border-radius: 0 0 20px 20px;
+}
+
+.CardName {
+  text-align: center;
+  margin: 10px auto;
+}
