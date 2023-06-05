@@ -17,6 +17,7 @@ export default function App() {
           path="/information/:name"
           element={
             <CardInformation
+              title=""
               img=""
               alt=""
               name=""
