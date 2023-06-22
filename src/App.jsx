@@ -10,7 +10,9 @@ export default function App() {
   }
   return (
     <>
-      <h1 onClick={navigateHome}>Pokedex</h1>
+      <header>
+        <h1 onClick={navigateHome}>Pokedex</h1>
+      </header>
       <Routes>
         <Route exact path="/" element={<PokemonList />} />
         <Route

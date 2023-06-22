@@ -19,6 +19,11 @@ body {
   padding-bottom: 10px;
 }
 
+header {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   padding: 10px;
 }
