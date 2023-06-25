@@ -1,0 +1,53 @@
+$main-color: #d9d9d9;
+$secondary-color: #9caae8;
+$medium-screen-size: 1024px;
+$small-screen-size: 768px;
+
+.CardDisplay {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: $medium-screen-size) {
+  .CardDisplay {
+    max-width: 90%;
+  }
+}
+
+@media screen and (max-width: $small-screen-size) {
+  .CardDisplay {
+    max-width: 100%;
+    margin: 0 2%;
+  }
+}
+
+.Card {
+  border-radius: 20px;
+  background-color: $main-color;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+    cursor: pointer;
+  }
+}
+
+.CardImage {
+  width: 90%;
+  height: auto;
+}
+
+.CardNameContainer {
+  padding: 5px 0;
+  background-color: $secondary-color;
+  border-radius: 0 0 20px 20px;
+}
+
+.CardName {
+  text-align: center;
+  margin: 10px auto;
+}
