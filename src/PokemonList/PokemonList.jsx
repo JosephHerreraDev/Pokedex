@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card } from "../Card/Card";
+import { Card } from "../Card/card";
 import "./PokemonList.scss";
 import { fetchPokemons } from "../api/fetchPokemons";
 
