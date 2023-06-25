@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card } from "../Card/Card";
-import "./PokemonList.css";
+import "./PokemonList.scss";
 import { fetchPokemons } from "../api/fetchPokemons";
 
 const PokemonListCreator = () => {

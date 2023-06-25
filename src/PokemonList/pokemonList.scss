@@ -1,3 +1,8 @@
+$main-color: #d9d9d9;
+$secondary-color: #9caae8;
+$medium-screen-size: 1024px;
+$small-screen-size: 768px;
+
 .CardDisplay {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6,13 +11,13 @@
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-screen-size) {
   .CardDisplay {
     max-width: 90%;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $small-screen-size) {
   .CardDisplay {
     max-width: 100%;
     margin: 0 2%;
@@ -21,14 +26,14 @@
 
 .Card {
   border-radius: 20px;
-  background-color: #d9d9d9;
+  background-color: $main-color;
   transition: transform 0.5s ease, opacity 0.5s ease;
-}
 
-.Card:hover {
-  transform: scale(1.05);
-  opacity: 0.8;
-  cursor: pointer;
+  &:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
+    cursor: pointer;
+  }
 }
 
 .CardImage {
@@ -38,7 +43,7 @@
 
 .CardNameContainer {
   padding: 5px 0;
-  background-color: #9caae8;
+  background-color: $secondary-color;
   border-radius: 0 0 20px 20px;
 }
 

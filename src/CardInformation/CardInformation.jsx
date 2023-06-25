@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./CardInformation.css";
+import "./CardInformation.scss";
 
 const CardInformation = () => {
   // const { name } = useParams();
