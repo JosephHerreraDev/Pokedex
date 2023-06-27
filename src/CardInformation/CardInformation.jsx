@@ -1,12 +1,47 @@
-import { useLocation } from "react-router-dom";
 import PropTypes from "prop-types";
-import "./CardInformation.css";
+import { fetchPokemon } from "../api/fetchPokemon";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import "./CardInformation.scss";
 
 const CardInformation = () => {
-  // const { name } = useParams();
-  const { state } = useLocation();
+  const { name } = useParams();
+  const [pokemonData, setPokemonData] = useState(null);
 
-  const { img, alt, title, exp, hp, attack, defense, specialAttack } = state;
+  useEffect(() => {
+    fetchPokemon(name)
+      .then(({ data }) => {
+        const img = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
+          data.id
+        ).padStart(3, "0")}.png`;
+        const alt = name;
+        const title = name;
+        const exp = data.base_experience + "xp";
+        const hp = data.stats[0].base_stat;
+        const attack = data.stats[1].base_stat;
+        const defense = data.stats[2].base_stat;
+        const specialAttack = data.stats[3].base_stat;
+
+        setPokemonData({
+          img,
+          alt,
+          title,
+          exp,
+          hp,
+          attack,
+          defense,
+          specialAttack,
+        });
+      })
+      .catch((error) => console.error(error));
+  }, [name]);
+
+  if (!pokemonData) {
+    return null;
+  }
+
+  const { img, alt, title, exp, hp, attack, defense, specialAttack } =
+    pokemonData;
 
   return (
     <div className="CardInformation">
@@ -36,7 +71,7 @@ CardInformation.propTypes = {
   img: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  exp: PropTypes.number.isRequired,
+  exp: PropTypes.string.isRequired,
   hp: PropTypes.number.isRequired,
   attack: PropTypes.number.isRequired,
   defense: PropTypes.number.isRequired,

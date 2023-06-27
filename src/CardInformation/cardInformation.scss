@@ -1,28 +1,38 @@
+$primary-color: #d9d9d9;
+$secondary-color: #9caae8;
+$medium-screen-size: 1024px;
+$small-screen-size: 768px;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
 .CardInformation {
+  background-color: $primary-color;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  background-color: #d9d9d9;
   border-radius: 20px;
   margin: 0 35%;
 }
 
-/*Media query para pantallas medianas*/
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $medium-screen-size) {
   .CardInformation {
     margin: 0 10%;
   }
 }
 
-/* Media query para pantallas más pequeñas */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $small-screen-size) {
   .CardInformation {
     margin: 0 2%;
   }
 }
 
 .CardText {
-  background-color: #9caae8;
+  background-color: $secondary-color;
   border-radius: 0 0 20px 20px;
   font-size: 25px;
 }
@@ -34,10 +44,7 @@
 }
 
 .CardInfoNameContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
+  @include flex-center;
 }
 
 .CardInfoNameContainer p {
@@ -46,11 +53,8 @@
 }
 
 .CardExperience {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex-center;
   opacity: 0.8;
-  margin-bottom: 30px;
 }
 
 .Stats {
