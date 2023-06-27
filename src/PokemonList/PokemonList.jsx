@@ -6,7 +6,7 @@ import { fetchPokemons } from "../api/fetchPokemons";
 
 const PokemonListCreator = () => {
   const [pokemonList, setPokemonList] = useState([]);
-
+  
   useEffect(() => {
     async function fetchPokemonList() {
       try {
@@ -20,9 +20,47 @@ const PokemonListCreator = () => {
     fetchPokemonList();
   }, []);
 
+  const handleSelectChange = (selectedOption) => {
+    switch (selectedOption.value) {
+      case "all":
+        setPokemonList(pokemonList);
+        break;
+      case "first":
+        setPokemonList(pokemonList.slice(0, 151));
+        break;
+      case "second":
+        setPokemonList(pokemonList.slice(151, 251));
+        break;
+      case "third":
+        setPokemonList(pokemonList.slice(251, 386));
+        break;
+      case "fourth":
+        setPokemonList(pokemonList.slice(386, 493));
+        break;
+      case "fifth":
+        setPokemonList(pokemonList.slice(493, 649));
+        break;
+      case "sixth":
+        setPokemonList(pokemonList.slice(649, 721));
+        break;
+      case "seventh":
+        setPokemonList(pokemonList.slice(721, 809));
+        break;
+      case "eighth":
+        setPokemonList(pokemonList.slice(809, 898));
+        break;
+      case "ninth":
+        setPokemonList(pokemonList.slice(898, 1000));
+        break;
+      default:
+        setPokemonList(pokemonList);
+        break;
+    }
+  };
+  
   return (
     <>
-      <GenerationSelect />
+      <GenerationSelect onSelectChange={handleSelectChange} />
       <div className="CardDisplay">
         {pokemonList.map((pokemon, index) => (
           <Card
