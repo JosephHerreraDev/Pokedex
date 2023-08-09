@@ -5,15 +5,15 @@ import "./GenerationSelect.scss";
 
 const options = [
   { value: "all", label: "All" },
-  { value: "generation-i", label: "First" },
-  { value: "generation-ii", label: "Second" },
-  { value: "generation-iii", label: "Third" },
-  { value: "generation-iv", label: "Fourth" },
-  { value: "generation-v", label: "Fifth" },
-  { value: "generation-vi", label: "Sixth" },
-  { value: "generation-vii", label: "Seventh" },
-  { value: "generation-viii", label: "Eighth" },
-  { value: "generation-ix", label: "Ninth" },
+  { value: "1", label: "First" },
+  { value: "2", label: "Second" },
+  { value: "3", label: "Third" },
+  { value: "4", label: "Fourth" },
+  { value: "5", label: "Fifth" },
+  { value: "6", label: "Sixth" },
+  { value: "7", label: "Seventh" },
+  { value: "8", label: "Eighth" },
+  { value: "9", label: "Ninth" },
 ];
 
 export function GenerationSelect({ onSelectChange }) {
