@@ -1,10 +1,13 @@
+import "./PokemonList.scss";
 import { useState, useEffect } from "react";
 import { Card } from "../Card/card";
-import "./PokemonList.scss";
+import {GenerationSelect} from "../GenerationSelect/GenerationSelect"
+import { fetchPokemonByGeneration } from "../api/fetchPokemonByGeneration";
 import { fetchPokemons } from "../api/fetchPokemons";
 
 const PokemonListCreator = () => {
   const [pokemonList, setPokemonList] = useState([]);
+  const [selectedGeneration, setSelectedGeneration] = useState();
 
   useEffect(() => {
     async function fetchPokemonList() {
@@ -19,20 +22,52 @@ const PokemonListCreator = () => {
     fetchPokemonList();
   }, []);
 
+  useEffect(() => {
+    async function fetchGenerationList() {
+      try {
+        const generationData = await fetchPokemonByGeneration(selectedGeneration);
+        if (generationData && generationData.pokemon_species) {
+          setPokemonList(generationData.pokemon_species);
+        } else {
+          console.error('Not valid generation data:', generationData);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+      
+    fetchGenerationList();
+  }, [selectedGeneration]);
+
+  const handleSelectChange = (selectedOption) => {
+    setSelectedGeneration(selectedOption.value);
+  };
+
+  const idList = pokemonList.map(pokemon => {
+    const parts = pokemon.url.split('/');
+    parts.pop();
+    return parts.pop();
+  });
+
+  let x = 0;
+
   return (
-    <div className="CardDisplay">
-      {pokemonList.map((pokemon, index) => (
+    <>
+      <GenerationSelect onSelectChange={handleSelectChange}/>
+      
+      <div className="CardDisplay">
+      {pokemonList.map((pokemon, id) => (
         <Card
-          key={index}
-          id={index}
+          key={idList[id]}
+          id={idList[id]}
           name={pokemon.name}
           img={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${String(
-            index + 1
+            idList[id]
           ).padStart(3, "0")}.png`}
-          alt={pokemon.name}
         />
       ))}
-    </div>
+    </div>      
+    </>
   );
 };
 
