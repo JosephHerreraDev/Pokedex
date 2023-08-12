@@ -4,7 +4,6 @@ import Select from "react-select";
 import "./GenerationSelect.scss";
 
 const options = [
-  { value: "all", label: "All" },
   { value: "1", label: "First" },
   { value: "2", label: "Second" },
   { value: "3", label: "Third" },
