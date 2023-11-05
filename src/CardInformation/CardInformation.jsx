@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { fetchPokemon } from "../api/fetchPokemon";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import "./CardInformation.scss";
+import "./cardInformation.scss";
 
 const CardInformation = () => {
   const { name } = useParams();
